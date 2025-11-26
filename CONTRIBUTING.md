@@ -250,8 +250,4 @@ See [MVP.md](MVP.md) for current development phases and priorities.
 - Start a [discussion](https://github.com/bindigo/bindigo/discussions)
 - Read [scope.md](scope.md) and [design.md](design.md)
 
-## License
-
-By contributing, you agree that your contributions will be licensed under the MIT License.
-
 Thank you for contributing to Bindigo! 🧬

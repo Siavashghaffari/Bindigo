@@ -35,7 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modern packaging with pyproject.toml
 - Automated testing with pytest
 - Code coverage reporting
-- MIT License
 
 ### Notes
 This is an alpha release with foundational infrastructure only. Core prediction functionality will be added in subsequent releases as phases 2-4 are implemented.

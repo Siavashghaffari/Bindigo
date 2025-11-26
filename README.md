@@ -2,7 +2,6 @@
 
 **Protein-Ligand Binding Affinity Prediction using Molecular Docking and Machine Learning**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 Bindigo is a Python package for predicting protein-ligand binding affinities. It combines molecular docking (AutoDock Vina) with machine learning to provide fast, accurate predictions for early-stage drug discovery.
@@ -182,10 +181,6 @@ Bindigo uses the following tools:
 - **RDKit**: https://www.rdkit.org
 - **BioPython**: Cock et al., Bioinformatics 2009
 - **scikit-learn**: Pedregosa et al., JMLR 2011
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
