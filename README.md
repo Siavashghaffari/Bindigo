@@ -26,7 +26,7 @@ pip install bindigo
 ### From Source (Development)
 
 ```bash
-git clone https://github.com/bindigo/bindigo.git
+git clone https://github.com/Siavashghaffari/Bindigo.git
 cd bindigo
 pip install -e .
 ```
