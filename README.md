@@ -161,7 +161,7 @@ Current version (v0.1.0) has the following limitations:
 - Small molecule ligands only (MW < 1000 Da)
 - CPU only (no GPU acceleration)
 
-See [MVP.md](MVP.md) for development roadmap.
+
 
 ## Contributing
 
@@ -197,7 +197,7 @@ Current version: **0.1.0 (Alpha)**
 
 This is an early development version. APIs may change. Production use is not recommended yet.
 
-See [scope.md](docs/scope.md) and [MVP.md](docs/MVP.md) for project scope and roadmap.
+
 
 ## Authors 
 
