@@ -173,7 +173,8 @@ If you use Bindigo in your research, please cite:
 
 ```
 Bindigo: A Python package for protein-ligand binding affinity prediction
-https://github.com/bindigo/bindigo
+https://github.com/Siavashghaffari/Bindigo
+
 ```
 
 Bindigo uses the following tools:
@@ -182,11 +183,7 @@ Bindigo uses the following tools:
 - **BioPython**: Cock et al., Bioinformatics 2009
 - **scikit-learn**: Pedregosa et al., JMLR 2011
 
-## Support
 
-- **Issues**: [GitHub Issues](https://github.com/bindigo/bindigo/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/bindigo/bindigo/discussions)
-- **Documentation**: [Read the Docs](https://bindigo.readthedocs.io)
 
 ## Acknowledgments
 
