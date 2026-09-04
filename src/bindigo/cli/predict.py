@@ -8,6 +8,7 @@ import click
 from pathlib import Path
 
 from bindigo.cli.utils import print_header, print_error, print_success
+from bindigo.utils.exceptions import BindigoError
 
 
 @click.command()
@@ -110,6 +111,22 @@ def predict(protein, ligand, output, center, size, save_pose, verbose):
 
         click.echo(f"\n✓ Prediction completed in {result.get('execution_time', 0):.0f}s")
 
-    except Exception as e:
+    except BindigoError as e:
+        # Expected failures (bad input, missing dependency) already carry a
+        # user-facing explanation, so show it plainly instead of a traceback.
         print_error(str(e))
-        raise click.Abort()
+        if e.details:
+            # Printed outside the box so command examples keep their layout.
+            click.echo(e.details)
+            click.echo()
+        raise SystemExit(1)
+
+    except Exception as e:
+        print_error(
+            f"Unexpected error: {e}",
+            suggestion=(
+                "Please report this at "
+                "https://github.com/Siavashghaffari/Bindigo/issues"
+            ),
+        )
+        raise SystemExit(1)

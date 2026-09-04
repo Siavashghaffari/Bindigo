@@ -30,8 +30,8 @@ For feature requests, create an issue describing:
 
 1. **Fork and clone the repository**:
 ```bash
-git clone https://github.com/YOUR_USERNAME/bindigo.git
-cd bindigo
+git clone https://github.com/YOUR_USERNAME/Bindigo.git
+cd Bindigo
 ```
 
 2. **Create a virtual environment**:
@@ -246,8 +246,8 @@ See [MVP.md](MVP.md) for current development phases and priorities.
 
 ## Questions?
 
-- Check existing [issues](https://github.com/bindigo/bindigo/issues)
-- Start a [discussion](https://github.com/bindigo/bindigo/discussions)
+- Check existing [issues](https://github.com/Siavashghaffari/Bindigo/issues)
+- Start a [discussion](https://github.com/Siavashghaffari/Bindigo/discussions)
 - Read [scope.md](scope.md) and [design.md](design.md)
 
 Thank you for contributing to Bindigo! 🧬

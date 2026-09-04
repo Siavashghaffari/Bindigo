@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=77.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,12 +7,14 @@ name = "bindigo"
 version = "0.1.0"
 description = "Protein-ligand binding affinity prediction using molecular docking and machine learning"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.9"
 authors = [
-    {name = "Bindigo Contributors", email = "bindigo@example.com"}
+    {name = "Siavash Ghaffari"}
 ]
 maintainers = [
-    {name = "Bindigo Contributors", email = "bindigo@example.com"}
+    {name = "Siavash Ghaffari"}
 ]
 keywords = [
     "drug-discovery",
@@ -66,10 +68,10 @@ viz = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bindigo/bindigo"
-Documentation = "https://bindigo.readthedocs.io"
-Repository = "https://github.com/bindigo/bindigo"
-"Bug Tracker" = "https://github.com/bindigo/bindigo/issues"
+Homepage = "https://github.com/Siavashghaffari/Bindigo"
+Documentation = "https://github.com/Siavashghaffari/Bindigo#readme"
+Repository = "https://github.com/Siavashghaffari/Bindigo"
+"Bug Tracker" = "https://github.com/Siavashghaffari/Bindigo/issues"
 
 [project.scripts]
 bindigo = "bindigo.cli.main:cli"

@@ -14,10 +14,11 @@ def print_header(verbose: bool = False):
     from bindigo.__version__ import __version__
 
     mode = " (Verbose Mode)" if verbose else ""
+    title = f"Bindigo v{__version__}{mode}"
     click.echo("╔══════════════════════════════════════════════════════════════════╗")
-    click.echo(f"║                  Bindigo v{__version__}{mode:<28}║")
+    click.echo(f"║{title:^66}║")
     if not verbose:
-        click.echo("║         Protein-Ligand Binding Affinity Prediction              ║")
+        click.echo(f"║{'Protein-Ligand Binding Affinity Prediction':^66}║")
     click.echo("╚══════════════════════════════════════════════════════════════════╝")
     click.echo()
 
@@ -89,6 +90,56 @@ def print_success(message: str):
     click.echo(click.style(f"✓ {message}", fg="green"))
 
 
+def _wrap_text(text: str, max_width: int) -> list:
+    """
+    Wrap text to a maximum width, preserving explicit line breaks.
+
+    Multi-line messages (installation instructions, command examples) stay
+    readable instead of being collapsed into one run-on paragraph.
+
+    Args:
+        text: Text to wrap
+        max_width: Maximum line width in characters
+
+    Returns:
+        List of wrapped lines
+    """
+    lines = []
+
+    for paragraph in text.splitlines():
+        if not paragraph.strip():
+            lines.append("")
+            continue
+
+        # Preserve leading indentation of the source line.
+        indent = paragraph[: len(paragraph) - len(paragraph.lstrip())]
+        width = max(max_width - len(indent), 1)
+
+        current = ""
+        for word in paragraph.split():
+            # A single word longer than the box is hard-split so it cannot
+            # overflow and break the border.
+            while len(word) > width:
+                if current:
+                    lines.append(indent + current)
+                    current = ""
+                lines.append(indent + word[:width])
+                word = word[width:]
+
+            if not current:
+                current = word
+            elif len(current) + 1 + len(word) <= width:
+                current += " " + word
+            else:
+                lines.append(indent + current)
+                current = word
+
+        if current:
+            lines.append(indent + current)
+
+    return lines
+
+
 def print_error(message: str, suggestion: Optional[str] = None):
     """
     Print an error message in a formatted box.
@@ -99,54 +150,19 @@ def print_error(message: str, suggestion: Optional[str] = None):
     """
     click.echo()
     click.echo("╔══════════════════════════════════════════════════════════════════╗")
-    click.echo("║  " + click.style("ERROR", fg="red", bold=True) + "                                                            ║")
+    click.echo("║  " + click.style("ERROR", fg="red", bold=True) + f"{'':<59}║")
     click.echo("╠══════════════════════════════════════════════════════════════════╣")
 
-    # Wrap long messages
     max_width = 64
-    words = message.split()
-    lines = []
-    current_line = []
-    current_length = 0
 
-    for word in words:
-        if current_length + len(word) + 1 <= max_width:
-            current_line.append(word)
-            current_length += len(word) + 1
-        else:
-            lines.append(" ".join(current_line))
-            current_line = [word]
-            current_length = len(word)
-
-    if current_line:
-        lines.append(" ".join(current_line))
-
-    for line in lines:
+    for line in _wrap_text(message, max_width):
         click.echo(f"║  {line:<64}║")
 
     if suggestion:
         click.echo("║                                                                  ║")
         click.echo("║  Suggestion:                                                     ║")
 
-        # Wrap suggestion
-        words = suggestion.split()
-        lines = []
-        current_line = []
-        current_length = 0
-
-        for word in words:
-            if current_length + len(word) + 1 <= max_width - 4:
-                current_line.append(word)
-                current_length += len(word) + 1
-            else:
-                lines.append(" ".join(current_line))
-                current_line = [word]
-                current_length = len(word)
-
-        if current_line:
-            lines.append(" ".join(current_line))
-
-        for line in lines:
+        for line in _wrap_text(suggestion, max_width - 4):
             click.echo(f"║    {line:<62}║")
 
     click.echo("╚══════════════════════════════════════════════════════════════════╝")

@@ -6,9 +6,19 @@ Provides descriptive error types for different failure modes.
 
 
 class BindigoError(Exception):
-    """Base exception for all Bindigo errors."""
+    """
+    Base exception for all Bindigo errors.
 
-    pass
+    Args:
+        message: Short, single-paragraph description of what went wrong.
+        details: Optional long-form guidance (installation steps, commands).
+            Kept separate from the message so callers can render it verbatim
+            rather than re-wrapping it.
+    """
+
+    def __init__(self, message: str = "", details: str = None):
+        super().__init__(message)
+        self.details = details
 
 
 class InputError(BindigoError):

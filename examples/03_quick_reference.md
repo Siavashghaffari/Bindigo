@@ -307,9 +307,9 @@ print(f"Kd: {result.kd_nM} nM")
 
 ## Resources
 
-- Documentation: https://bindigo.readthedocs.io
-- GitHub: https://github.com/bindigo/bindigo
-- Issues: https://github.com/bindigo/bindigo/issues
+- Documentation: https://github.com/Siavashghaffari/Bindigo#readme
+- GitHub: https://github.com/Siavashghaffari/Bindigo
+- Issues: https://github.com/Siavashghaffari/Bindigo/issues
 - PyPI: https://pypi.org/project/bindigo
 
 ## Version History

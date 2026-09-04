@@ -18,4 +18,5 @@ Complete documentation for Bindigo package.
 
 ## Online Documentation
 
-Full documentation will be hosted at: https://bindigo.readthedocs.io
+Documentation currently lives in this repository. Start with the
+[README](https://github.com/Siavashghaffari/Bindigo#readme).

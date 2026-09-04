@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 
 from bindigo.core.config import config
+from bindigo.docking.vina import check_vina_available
 from bindigo.utils.logging import get_logger
 from bindigo.utils.validation import (
     validate_protein_input,
@@ -61,14 +62,20 @@ def run_prediction(
         logger.info(f"Protein input type: {protein_type}")
         logger.info(f"Ligand input type: {ligand_type}")
 
+        # Step 2: Check external dependencies before doing any real work, so a
+        # missing Vina binary is reported up front instead of mid-pipeline.
+        logger.info("Checking AutoDock Vina availability...")
+        vina_path = check_vina_available()
+        logger.info(f"Using AutoDock Vina at: {vina_path}")
+
         # TODO: Implement remaining pipeline steps
-        # Step 2: Prepare protein
-        # Step 3: Prepare ligand
-        # Step 4: Detect/validate binding site
-        # Step 5: Run docking
-        # Step 6: Extract features
-        # Step 7: ML prediction
-        # Step 8: Format and save results
+        # Step 3: Prepare protein
+        # Step 4: Prepare ligand
+        # Step 5: Detect/validate binding site
+        # Step 6: Run docking
+        # Step 7: Extract features
+        # Step 8: ML prediction
+        # Step 9: Format and save results
 
         # Placeholder result
         result = {
@@ -77,6 +84,7 @@ def run_prediction(
             "protein_type": protein_type,
             "ligand_type": ligand_type,
             "output": str(output_path),
+            "vina_path": vina_path,
             "execution_time": time.time() - start_time,
             "status": "placeholder",
             "pose_file": None,
@@ -86,7 +94,9 @@ def run_prediction(
         return result
 
     except BindigoError as e:
-        logger.error(f"Pipeline failed: {e}")
+        # Expected failures are re-raised for the caller to present, so this
+        # is logged at debug level to avoid printing the same message twice.
+        logger.debug(f"Pipeline failed: {e}")
         raise
 
     except Exception as e:

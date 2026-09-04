@@ -11,7 +11,7 @@ from bindigo.cli.predict import predict
 from bindigo.cli.info import info
 
 
-@click.group()
+@click.group(invoke_without_command=True)
 @click.version_option(version=__version__, prog_name="bindigo")
 @click.pass_context
 def cli(ctx):
@@ -33,11 +33,18 @@ def cli(ctx):
       $ bindigo predict --protein 1HSG --ligand "CCO" --center 10 20 15 --output results.csv
 
     \b
-    Documentation: https://github.com/bindigo/bindigo
-    Report issues: https://github.com/bindigo/bindigo/issues
+    Documentation: https://github.com/Siavashghaffari/Bindigo
+    Report issues: https://github.com/Siavashghaffari/Bindigo/issues
     """
     # Ensure context object exists
     ctx.ensure_object(dict)
+
+    # Running `bindigo` with no subcommand is a discovery gesture, not a usage
+    # error: show the help text and exit successfully. Handled explicitly rather
+    # than via Click's default, which exits 2 on Click >= 8.2.
+    if ctx.invoked_subcommand is None:
+        click.echo(ctx.get_help())
+        ctx.exit(0)
 
 
 # Register subcommands

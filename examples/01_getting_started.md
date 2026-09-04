@@ -13,8 +13,8 @@ pip install bindigo
 Or install from source:
 
 ```bash
-git clone https://github.com/bindigo/bindigo.git
-cd bindigo
+git clone https://github.com/Siavashghaffari/Bindigo.git
+cd Bindigo
 pip install -e .
 ```
 
@@ -226,9 +226,9 @@ Shows how to cite Bindigo and its dependencies in publications.
 
 ## Need Help?
 
-- Documentation: https://bindigo.readthedocs.io
-- Issues: https://github.com/bindigo/bindigo/issues
-- Discussions: https://github.com/bindigo/bindigo/discussions
+- Documentation: https://github.com/Siavashghaffari/Bindigo#readme
+- Issues: https://github.com/Siavashghaffari/Bindigo/issues
+- Discussions: https://github.com/Siavashghaffari/Bindigo/discussions
 
 ## Summary
 

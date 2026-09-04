@@ -404,7 +404,7 @@ predictor = BindingPredictor(exhaustiveness=16)
 
 - See `03_cli_reference.md` for CLI documentation
 - See `04_advanced_usage.md` for advanced features
-- See API reference at https://bindigo.readthedocs.io/api
+- See the [README](https://github.com/Siavashghaffari/Bindigo#readme) for the currently supported interface
 
 ---
 

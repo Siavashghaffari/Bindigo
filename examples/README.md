@@ -81,7 +81,7 @@ Start with [Getting Started](01_getting_started.md) for a complete introduction.
 - See tutorials above
 - Check [../README.md](../README.md) for main documentation
 - Visit [docs/](../docs/) for detailed documentation
-- Open an issue: https://github.com/bindigo/bindigo/issues
+- Open an issue: https://github.com/Siavashghaffari/Bindigo/issues
 
 ## Contributing Examples
 

@@ -396,8 +396,8 @@ Examples:
   # Custom binding site
   $ bindigo predict --protein 1HSG --ligand "CCO" --center 10 20 15 --output results.csv
 
-Documentation: https://github.com/bindigo/bindigo
-Report issues: https://github.com/bindigo/bindigo/issues
+Documentation: https://github.com/Siavashghaffari/Bindigo
+Report issues: https://github.com/Siavashghaffari/Bindigo/issues
 ```
 
 #### Predict Help

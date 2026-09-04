@@ -6,6 +6,7 @@ import pytest
 from click.testing import CliRunner
 
 from bindigo.cli.main import cli
+from bindigo.docking.vina import VINA_PATH_ENV_VAR
 
 
 @pytest.fixture
@@ -73,6 +74,36 @@ class TestPredictCommand:
         )
         # Should fail validation
         assert result.exit_code != 0
+
+    def test_predict_without_vina_shows_actionable_error(
+        self, runner, tmp_path, monkeypatch
+    ):
+        """Missing AutoDock Vina produces guidance, not a stack trace."""
+        empty_dir = tmp_path / "empty_path"
+        empty_dir.mkdir()
+        monkeypatch.delenv(VINA_PATH_ENV_VAR, raising=False)
+        monkeypatch.setenv("PATH", str(empty_dir))
+        monkeypatch.chdir(empty_dir)
+
+        output = tmp_path / "results.csv"
+        result = runner.invoke(
+            cli,
+            [
+                "predict",
+                "--protein",
+                "1HSG",
+                "--ligand",
+                "CCO",
+                "--output",
+                str(output),
+            ],
+        )
+
+        assert result.exit_code != 0
+        assert "Traceback" not in result.output
+        assert "AutoDock Vina" in result.output
+        assert "conda install -c conda-forge vina" in result.output
+        assert VINA_PATH_ENV_VAR in result.output
 
 
 class TestInfoCommand:

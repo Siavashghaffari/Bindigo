@@ -77,7 +77,7 @@ def info(show_version, show_models, show_citation):
 If you use Bindigo in your research, please cite:
 
   Bindigo: A Python package for protein-ligand binding affinity prediction
-  https://github.com/bindigo/bindigo
+  https://github.com/Siavashghaffari/Bindigo
 
 Bindigo uses the following tools:
   • AutoDock Vina: Eberhardt et al., J. Chem. Inf. Model. 2021
