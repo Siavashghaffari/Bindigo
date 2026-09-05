@@ -1,5 +1,9 @@
 # Bindigo
 
+[![PyPI](https://img.shields.io/pypi/v/bindigo)](https://pypi.org/project/bindigo/)
+[![Python](https://img.shields.io/pypi/pyversions/bindigo)](https://pypi.org/project/bindigo/)
+[![License](https://img.shields.io/pypi/l/bindigo)](LICENSE)
+
 **Protein-Ligand Binding Affinity Prediction using Molecular Docking and Machine Learning**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -23,13 +27,11 @@ Bindigo is a Python package for predicting protein-ligand binding affinities. It
 
 ## Installation
 
-### From PyPI (when released)
-
 ```bash
 pip install bindigo
 ```
 
-### From Source (Development)
+### From source
 
 ```bash
 git clone https://github.com/Siavashghaffari/Bindigo.git
